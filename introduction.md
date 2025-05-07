@@ -50,7 +50,7 @@
         <body>
             <div id="app">
                 <h1>{{ message }}</h1>
-                <button v-on:click="count++">Count is {{ count }}</button>
+                <button v-on:click="count++">Count is {{ count }}</button>   # 이벤트핸들러 
             </div>
             
             <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -58,23 +58,23 @@
             // console.log(Vue)
             // const createApp = Vue.createApp
             // console.log(createApp)
-                const { createApp, ref } = Vue
+                const { createApp, ref } = Vue      # 사용할 함수 등록 (구조분해) 
 
                 const app = createApp({
                     // setup 함수
                     setup() {
-                        const message = 'Hello Vue!'
+                        const message = 'Hello Vue!'  # 사용할 변수 정의 
                         const count = ref(0)
                         console.log(count)
 
-                        return {
+                        return {                      # 사용할 변수, 함수 반환 
                             message,
                             count 
                         }
                     }
                 })
 
-                app.mount('#app')
+                app.mount('#app')                     # 특정 id의 셀에 앱 마운트 
             </script>
         </body>
         </html>
