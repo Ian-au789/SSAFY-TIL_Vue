@@ -68,5 +68,38 @@
 - 동일 요소에서 v-if가 v-for 보다 우선순위가 높음 
 
 
+### watch
 
+: 하나 이상의 반응형 데이터를 감시하고, 감시하는 데이터가 변경되면 콜백 함수를 호출
+
+- watch(source, (newValue, oldValue) => {})
+
+- source : watch가 감시하는 대상 (반응형 변수, 값을 반환하는 함수)
+
+- (newValue, oldValue) : source가 변경될 때 호출되는 콜백함수 -> newValue : 감시하는 대상이 변화된 값 / oldValue : 감시하는 대상의 기존 값 
+
+예시)
+
+        watch(count, (newValue, oldValue) => {
+          console.log(`newValue: ${newValue}, oldValue: ${oldValue}`)
+        })
+
+        watch(message, (newValue, oldValue) => {
+          messageLength.value = newValue.length
+        })
+
+
+## Lifecycle Hooks
+
+: Vue 컴포넌트의 생성부터 소멸까지 각 단계에서 실행되는 함수 
+
+- 컴포넌트의 생애 주기 중간 중간에 함수를 제공 -> 개발자는 컴포넌트의 특정 시점에 원하는 로직을 실행할 수 있음
+
+- 생성 단계 / 마운트 단계 / 업데이트 단계 / 소멸 단계 
+
+- onMounted : 초기 렌더링 및 DOM 요소 생성이 완료된 후 특정 로직 수행
+
+- onUpdated : 반응형 데이터의 변경으로 인해 컴포넌트의 DOM이 업데이트 된 후 특정 로직 수행
+
+- onUnmounted : 
 
